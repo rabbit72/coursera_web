@@ -36,13 +36,14 @@ def group_friends_ages(friends):
         if not bdate:
             continue
         split_bdate = bdate.split('.')
-        if len(split_bdate) == 3:
-            day, month, year = split_bdate
-            age = CURRENT_YEAR - int(year)
-            counter_ages.setdefault(age, 0)
-            counter_ages[age] += 1
+        if len(split_bdate) != 3:
+            continue
+        day, month, year = split_bdate
+        age = CURRENT_YEAR - int(year)
+        counter_ages.setdefault(age, 0)
+        counter_ages[age] += 1
     group_by_ages = list(counter_ages.items())
-    group_by_ages.sort(key=lambda x: (x[1], -x[0]), reverse=True)
+    group_by_ages.sort(key=lambda x: (-x[1], x[0]))
     return group_by_ages
 
 
