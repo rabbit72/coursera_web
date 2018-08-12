@@ -42,7 +42,7 @@ def group_friends_ages(friends):
             counter_ages.setdefault(age, 0)
             counter_ages[age] += 1
     group_by_ages = list(counter_ages.items())
-    group_by_ages.sort(key=lambda x: x[1], reverse=True)
+    group_by_ages.sort(key=lambda x: (x[1], -x[0]), reverse=True)
     return group_by_ages
 
 
