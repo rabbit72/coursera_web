@@ -93,9 +93,6 @@ def get_max_quantity_neighboring_tags(soup_obj, tag):
 
 
 def get_unattached_lists(soup_obj):
-    ol = soup_obj.find_all("ol")
-    ol = [1 for o in ol if not (o.find_parent("ol") or o.find_parent("ul"))]
-    ul = soup_obj.find_all("ul")
-    ul = [1 for o in ul if not (o.find_parent("ul") or o.find_parent("ol"))]
-    return len(ol) + len(ul)
+    ol = soup_obj.find_all(["ol", "ul"])
+    return sum([1 for o in ol if not o.find_parent(["ol", "ul"])])
 
