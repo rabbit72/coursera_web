@@ -1,5 +1,5 @@
 .idea/
-.soup_sample/wiki/
+./soup_sample/wiki/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
