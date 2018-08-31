@@ -11,8 +11,8 @@ def convert(amount, cur_from, cur_to, date, requests):
 
     _from = get_exchange_info(cur_from, currencies)
     _to = get_exchange_info(cur_to, currencies)
-    result = round(amount * _from / _to, 4)
-    return result
+    result = amount * _from / _to
+    return result.quantize(Decimal('.0001'))
 
 
 def get_exchange_info(name_currency, currencies):
